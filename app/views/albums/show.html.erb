@@ -1,0 +1,26 @@
+<%= render "header" %>
+
+<h1 class="text-center mt-3"><%= @album.title %></h1>
+
+<div class="container" >
+  <div class="row">
+    <% if @album.photos.attached? %>
+      <% @album.photos.each do |photo| %>
+        <%= image_tag photo, class: 'img-fluid col-3 mb-3' %>
+ 
+      <% end %>
+    <% end %>
+  </div>
+
+</div>
+
+<div class="container">
+    <div class="btn-group mt-5 d-flex justify-content-center" role="group" aria-label="Basic example " style="width:300px" >
+      <div class="btn btn-light "><%= link_to "Update", edit_album_path(@album), class: 'text-decoration-none' %></div>
+      <div class="btn btn-light "><%= link_to "destroy", album_path(@album), class: 'text-decoration-none', data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+        } %>
+      </div>
+    </div>
+</div>

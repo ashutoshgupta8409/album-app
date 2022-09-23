@@ -1,0 +1,46 @@
+<div class="container  ">
+  <div class="justify-content-center bg-light mt-5">
+    <%=form_with model: album do |form| %>
+      <div class="text-center mb-2">
+        <%= form.label :Title %><br>
+        <%= form.text_field :title %>
+          <% album.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+      </div>
+
+      <div class="text-center mb-2">
+        <%= form.label :Cover %><br>
+        <%= form.file_field :image %>
+      </div>
+
+      <div class="text-center mb-2">
+        <%= form.label :photos %><br>
+        <%= form.file_field :photos, :multiple => true %>
+      </div>
+
+      <div class="text-center mb-2">
+        <%= form.label :description %><br>
+        <%= form.text_area :description %>
+        <% album.errors.full_messages_for(:description).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+
+      <div class="text-center mb-2" >
+        <%=form.label :tagged,"Album Tags",class:"form-label"%><br>
+        <%=form.text_field :tagged,class:"form-control"%>
+      </div>
+
+      <div class="text-center mb-2">
+        <%= form.label :published %>
+        <%= form.check_box :published %>
+      </div>
+  
+      <div class="text-center">
+        <%= form.submit %>
+    
+      </div>
+    <% end %>
+  </div>
+</div>

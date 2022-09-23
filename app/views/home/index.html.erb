@@ -1,0 +1,35 @@
+<%= render "albums/header" %>
+<h2 class="text-center">ALBUMS</h2>
+
+<div class="container mb-5 d-flex justify-content-lg-center">
+  <%= search_form_for @q , url: root_path do |f| %>
+    <div class="row d-flex justify-content-center">                                       
+      <div class="w-25"> <%= f.text_field :tags_tags_cont, placeholder:"search by tag" ,class:'form-control' %></div>
+      <div class="w-25"><%= f.submit class: 'btn btn-primary ' %></div>
+    </div>
+  <% end %>
+</div>
+  
+
+
+<div class="container mb-5">
+    <div class="row ">
+   
+      <% @albums.each do |album| %>
+        <div class="col-lg-3 mb-3">
+        <a href="/albums/<%= album.id %>" style="text-decoration:none; color:black ">        
+          <div class="card ">
+            <%= image_tag album.image if album.image.attached? %>
+            <div class="card-body">
+              <h5 class="card-title text-center"><%= album.title %></h5>
+              <p class="card-title text-center"><%= album.description %></p>
+              <p class="card-title text-center">Tagged by - <%= album.tagged %></p>
+              <p class="card-title text-center"><%= album.published ? "Published" : "Unpublished" %></p>
+            </div>
+          </div>         
+        </a>
+        </div>
+      <% end %>
+    </div>
+</div>
+

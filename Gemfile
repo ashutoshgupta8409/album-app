@@ -83,6 +83,6 @@ end
 
 group :production do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'pg', '~> 1.4'
+  gem 'pg', '~> 1.4', '>= 1.4.3'
 end
 

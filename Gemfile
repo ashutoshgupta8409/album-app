@@ -5,8 +5,6 @@ ruby "3.1.2"
 
 gem 'devise'
 
-
-
 gem 'ransack'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -47,7 +45,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-gem "devise"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

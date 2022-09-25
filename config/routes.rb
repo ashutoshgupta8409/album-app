@@ -7,4 +7,10 @@ Rails.application.routes.draw do
   root "home#index"
 
   resources :albums
+
+  resources :albums do
+    member do 
+      delete :delete_photo_attachment
+    end
+  end
 end

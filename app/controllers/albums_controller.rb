@@ -5,6 +5,12 @@ class AlbumsController < ApplicationController
     @albums = current_user.albums.all
   end
 
+  def delete_photo_attachment
+    image = ActiveStorage::Attachment.find(params[:id])
+    image.purge
+    redirect_back(fallback_location: albums_path)  
+  end  
+
   def show
     @album = Album.find(params[:id])
   end

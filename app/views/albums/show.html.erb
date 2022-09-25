@@ -1,19 +1,38 @@
 <%= render "header" %>
+
 <h1 class="text-center mt-3"><%= @album.title %></h1>
+
 <div class="container" >
   <div class="row">
     <% if @album.photos.attached? %>
       <% @album.photos.each do |photo| %>
-        <%= image_tag photo, class: 'img-fluid col-lg-3 mb-3' %>   
-          <% if user_signed_in? && @album.user_id == current_user.id%>
-            <%= button_to delete_photo_attachment_album_path(photo.id),class:"rounded-circle btn btn-danger ", method: :delete do %>
-              fd
-            <% end %>
-          <% end %>
+           <div class="col-md-4 col-sm-12">
+            <div class="card cardShadow">
+              <div class="card-header ">
+                <%if user_signed_in?  %>
+                <%= button_to delete_photo_attachment_album_path(photo.id), method: :delete,  form: { data: { turbo_confirm: 'Are you sure?' } }   do %>
+                <i class="fa fa-times pull-right hover-delete" style="font-size:20px; "></i>
+                <% end %>
+                <% end  %>
+              </div>
+              <div class="card-body">
+                <%= link_to do %>
+                <% if @album.photos.attached? %>
+                <div style="width:100%; height:200px; text-align:center" class= "card-top-img img-fluid">
+                  <%= image_tag  photo,style: "width:100%; height:100%" %>
+                </div>
+                <% end %>
+              </div>
+              <% end %>
+            </div>
+            <br>
+          </div>
       <% end %>
     <% end %>
   </div>
+
 </div>
+
 <div class="container">
   <div class="btn-group mt-5 d-flex justify-content-center" role="group" aria-label="Basic example " style="width:300px" >
     <div class="btn btn-light "><%= link_to "Update", edit_album_path(@album), class: 'text-decoration-none' %></div>

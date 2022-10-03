@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+body{
+  background-color: aliceblue !important;
+}
+
+.header{
+ 
+  font-size: larger;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.footer{
+ 
+  background-color: #e3f2fd!important;
+ 
+}
+
+.form, .sign-up, .forgot, .login{
+  background-color: #e3f2fd;
+  width: 500px !important;
+
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.card:hover{
+  transform: scale(1.1);
+  transition: 500ms;
+}

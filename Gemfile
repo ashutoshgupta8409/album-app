@@ -6,7 +6,7 @@ ruby "3.1.2"
 gem 'devise'
 
 gem 'ransack'
-
+gem 'sass-rails'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
@@ -82,4 +82,5 @@ group :production do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'pg', '~> 1.4', '>= 1.4.3'
 end
+
 

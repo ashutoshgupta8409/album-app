@@ -1,7 +1,7 @@
 <%= render "albums/header" %>
 <h2 class="text-center">Forgot your password?</h2>
 
-<div class="container bg-light" style=" width:300px; ">
+<div class="container forgot" >
   <div class="  text-center mt-5  ">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

@@ -1,5 +1,5 @@
-<div class="container  ">
-  <div class="justify-content-center bg-light mt-5">
+<div class="container d-flex justify-content-center form mt-3" >
+  <div class="  mt-5" >
     <%=form_with model: album do |form| %>
       <div class="text-center mb-2">
         <%= form.label :Title %><br>
@@ -11,7 +11,7 @@
 
       <div class="text-center mb-2">
         <%= form.label :Cover %><br>
-        <%= form.file_field :image %>
+        <div class="d-flex justify-content-center"><%= form.file_field :image %></div>
       </div>
 
       <div class="text-center mb-2">
@@ -29,7 +29,7 @@
 
       <div class="text-center mb-2" >
         <%=form.label :tagged,"Album Tags",class:"form-label"%><br>
-        <%=form.text_field :tagged,class:"form-control"%>
+        <div class="w-75 d-flex justify-content-center"><%=form.text_field :tagged,class:"form-control"%></div>
       </div>
 
       <div class="text-center mb-2">
@@ -37,7 +37,7 @@
         <%= form.check_box :published %>
       </div>
   
-      <div class="text-center">
+      <div class="text-center mb-3">
         <%= form.submit %>
     
       </div>
